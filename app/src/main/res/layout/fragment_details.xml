@@ -1,50 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.DetailsFragment"
-    android:orientation="vertical"
-    android:gravity="center_horizontal">
+    >
+    <data>
+        <variable
+            name="animal"
+            type="com.example.myapplication.model.Animal" />
+    </data>
 
-    <ImageView
-        android:id="@+id/animalImage"
-        android:scaleType="center"
+    <LinearLayout
+        android:id="@+id/detailsLayout"
+        android:background="@{animal.imageUri}"
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".view.DetailsFragment">
 
-    <TextView
-        android:id="@+id/animal_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Name"
-        android:textSize="20sp" />
+        <ImageView
+            android:id="@+id/animalImage"
+            android:imageUrl="@{animal.imageUri}"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="center" />
 
-    <TextView
-        android:id="@+id/animal_kingdom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Name"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/animal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@{animal.name}"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/animal_order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Name"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/animal_kingdom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@{animal.taxonomy.kingdom}"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/animal_family"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Name"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/animal_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@{animal.taxonomy.order}"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/animal_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@{animal.taxonomy.family}"
+            android:textSize="20sp" />
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>
